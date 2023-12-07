@@ -1,14 +1,6 @@
 {
   "transactions": [
     {
-      "name": "Dênis Rocha",
-      "turma": "2017",
-      "email": "egressoif@gmail.com",
-      "photoUrl": "https://static.licdn.com/aero-v1/sc/h/9c8pery4andzj6ohjkjp54ma2",
-      "linkedinUrl": "https://www.linkedin.com/in/d%C3%AAnis-rocha-926794125/",
-      "id": "5wgjma1ioualpu79v3a"
-    },
-    {
       "name": "Matheus Alves",
       "turma": "2015",
       "email": "egressoif@gmail.com",
@@ -207,6 +199,118 @@
       "photoUrl": "https://media.licdn.com/dms/image/C4D03AQGNhbz0dJb0cw/profile-displayphoto-shrink_200_200/0/1623273163429?e=2147483647&v=beta&t=8gAJcyLz_1iySqyjGrDG6YOh8GBsczqtQx-MQtDhEDs",
       "linkedinUrl": "https://www.linkedin.com/in/ronaldo-brazier-junior-7944b3189/",
       "id": "ku1fen7q89lpu7srav"
+    },
+    {
+      "name": "Maria Raquel Gonçalves Della Torre",
+      "turma": "2016",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4D03AQEXMHpTlYvbYA/profile-displayphoto-shrink_200_200/0/1548697841285?e=2147483647&v=beta&t=r-QWevlxbfekSYQZuWCqaY33YTNgtSbMiaTIGlGNAOA",
+      "linkedinUrl": "https://www.linkedin.com/in/maria-raquel-gdt/",
+      "id": "yiy29y04rmplpvn8zgf"
+    },
+    {
+      "name": "Talles Ribeiro de Castilho",
+      "turma": "2016",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4D03AQH7XDffnHqTfQ/profile-displayphoto-shrink_200_200/0/1568040049589?e=2147483647&v=beta&t=Gk5WsB8cos5JMU_HFIJ5WF8jv8bu9Ymx6XyUBs0zbFQ",
+      "linkedinUrl": "https://www.linkedin.com/in/tallesribeirodecastilho/",
+      "id": "t6kcjnggwaolpvnadim"
+    },
+    {
+      "name": "Luis Felipe dos Santos",
+      "turma": "2017",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/D4D03AQHcpS1n9uRlGQ/profile-displayphoto-shrink_200_200/0/1690324305992?e=2147483647&v=beta&t=u7Ei0wL1yZZNCqug9dy6eU1WsrdeFcW1BoXXG6NaRIs",
+      "linkedinUrl": "https://media.licdn.com/dms/image/D4D03AQHcpS1n9uRlGQ/profile-displayphoto-shrink_200_200/0/1690324305992?e=2147483647&v=beta&t=u7Ei0wL1yZZNCqug9dy6eU1WsrdeFcW1BoXXG6NaRIs",
+      "id": "j3nsx76tqalpvnbwq0"
+    },
+    {
+      "name": "Mateus Rocha Brust",
+      "turma": "2017",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4D03AQFOVzjuDuplEg/profile-displayphoto-shrink_200_200/0/1619382309392?e=2147483647&v=beta&t=30pCthAe325D6QtieejTXbtclxMwTEt9T1fimkyoEks",
+      "linkedinUrl": "https://www.linkedin.com/in/mtbrust/",
+      "id": "2keaj2htgo8lpvncmlk"
+    },
+    {
+      "name": "Netto Fernandes",
+      "turma": "2017",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C5603AQFJNvQgx8Rsfg/profile-displayphoto-shrink_200_200/0/1642691371302?e=2147483647&v=beta&t=ySDElyMYDERSAOKvE_LpXjzAimxrFGshH-ygID9t6qE",
+      "linkedinUrl": "https://www.linkedin.com/in/nettuf/?original_referer=",
+      "id": "vz64la2q2jilpvndoef"
+    },
+    {
+      "name": "Gabriel Belo Dias",
+      "turma": "2018",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/D4D03AQEY1btlLFlHqw/profile-displayphoto-shrink_200_200/0/1674153717301?e=2147483647&v=beta&t=8wE05Hq9LmeJJOaHYZuLQC1f2uQJYYzVVjK6HIOPvTc",
+      "linkedinUrl": "https://www.linkedin.com/in/gabriel-belo-dias-559447160/",
+      "id": "8bcd2qws686lpvnhh6t"
+    },
+    {
+      "name": "Gustavo Viana",
+      "turma": "2018",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4D03AQEu7kdiP9aMyQ/profile-displayphoto-shrink_200_200/0/1643230298789?e=2147483647&v=beta&t=SONeLoBUatd2L_ka1Z22gzXsniYrOyr64yCuM_-5XWY",
+      "linkedinUrl": "https://www.linkedin.com/in/gustavo-viana-658aa91a4/",
+      "id": "yhik765r13jlpvnijq5"
+    },
+    {
+      "name": "Everton Pila Silva",
+      "turma": "2018",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/D4D03AQG94h_ZRmFfLg/profile-displayphoto-shrink_200_200/0/1696883719318?e=2147483647&v=beta&t=7MXj2JS7JI62Tx7_Y2oE4n09WS8Y45cEJnE1B1TMd7E",
+      "linkedinUrl": "https://www.linkedin.com/in/everton-pila-silva/",
+      "id": "wuuju1hm0gblpvnj6f2"
+    },
+    {
+      "name": "Pedro Henrique Tavares Ferreira",
+      "turma": "2018",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4D03AQGvt3QG87TSUg/profile-displayphoto-shrink_200_200/0/1656633991648?e=2147483647&v=beta&t=Cen7cwA3TLlD6ougP5Fz9eiQE3U8gkFrzryf-6f4k3k",
+      "linkedinUrl": "https://www.linkedin.com/in/pedrohenrique-tf/",
+      "id": "9ftt7lo2iwrlpvnjuro"
+    },
+    {
+      "name": "Yani Vilas Boas",
+      "turma": "2018",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/D4D03AQHOM-w_wQ0C3w/profile-displayphoto-shrink_200_200/0/1695473071314?e=2147483647&v=beta&t=F8HRnZols1aUQecYOJ1DNevUODsu60OSME-XcxZvK5Y",
+      "linkedinUrl": "https://www.linkedin.com/in/yanivilasboas/",
+      "id": "4zrx38p76nplpvnkof0"
+    },
+    {
+      "name": "Jader Martins",
+      "turma": "2019",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4E03AQEt_Mh5oTbMgg/profile-displayphoto-shrink_200_200/0/1564454473323?e=2147483647&v=beta&t=w5hLAkq9dIA6OXN4WEtbVNDmR9i3UN6TLxMOkusnZGo",
+      "linkedinUrl": "https://www.linkedin.com/in/jader-martins-2a804218b/",
+      "id": "uew6s5twbgqlpvnmnlj"
+    },
+    {
+      "name": "Enrico Mazzochi",
+      "turma": "2019",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4D03AQG0Qty3x1fd0w/profile-displayphoto-shrink_200_200/0/1571676477950?e=2147483647&v=beta&t=VVR6cys1wf00Ee3Z6dmrt8-cnpocUShb1CIiStnju8I",
+      "linkedinUrl": "https://www.linkedin.com/in/enrico-mazzochi-129914196/",
+      "id": "88edemenac7lpvnnfpq"
+    },
+    {
+      "name": "Edilson Teodoro Mathias Junior",
+      "turma": "2019",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C5603AQFBaGuWWx4ZTw/profile-displayphoto-shrink_200_200/0/1646271726899?e=2147483647&v=beta&t=mfDfpw_JJhHhJlLWbtPIZQgjK5YWYPCOHaS0mRYR85U",
+      "linkedinUrl": "https://www.linkedin.com/in/edilson-tmjr/",
+      "id": "yj8a2zcx2zlpvno0f3"
+    },
+    {
+      "name": "Carlos Roberto dos Santos Junior",
+      "turma": "2019",
+      "email": "egressoif@gmail.com",
+      "photoUrl": "https://media.licdn.com/dms/image/C4E03AQH0UotyrL3IMA/profile-displayphoto-shrink_100_100/0/1648756930908?e=2147483647&v=beta&t=hYLwhh4ZlBJ6ZkWgyWV7rAiDZzuRzsa0WiXm29d5YdE",
+      "linkedinUrl": "https://www.linkedin.com/in/carlos-roberto-dos-santos-junior-bb5433236/",
+      "id": "bhox1294r1mlpvnpzz6"
     }
   ]
 }
