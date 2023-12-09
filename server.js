@@ -18,9 +18,9 @@ function generateUniqueId() {
   return uuidv4();
 }
 
-const readDataFromFile = async () => {
+const readDataFromFile = () => {
   try {
-    const data = await fs.readFile(dataFilePath, 'utf-8');
+    const data = fs.readFileSync(dataFilePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
     console.error('Erro ao ler dados do arquivo:', error);
@@ -29,13 +29,8 @@ const readDataFromFile = async () => {
 };
 
 // Função para salvar os dados no arquivo JSON
-const saveDataToFile = async (data) => {
-  try {
-    await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
-    console.log('Dados salvos com sucesso!');
-  } catch (error) {
-    console.error('Erro ao salvar os dados:', error);
-  }
+const saveDataToFile = (data) => {
+  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
 }
 
 // Rota para listar todos os alunos
