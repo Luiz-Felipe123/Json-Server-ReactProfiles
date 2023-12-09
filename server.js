@@ -21,14 +21,12 @@ function generateUniqueId() {
 const readDataFromFile = () => {
   try {
     const data = fs.readFileSync(dataFilePath, "utf-8");
-    const parsedData = JSON.parse(data);
-    return Array.isArray(parsedData) ? parsedData : [];
+    return JSON.parse(data);
   } catch (error) {
     // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
     return [];
   }
 }
-
 
 // Função para salvar os dados no arquivo JSON
 const saveDataToFile = (data) => {
@@ -38,10 +36,7 @@ const saveDataToFile = (data) => {
 // Rota para listar todos os alunos
 app.get("/students", (req, res) => {
   const students = readDataFromFile();
-
-  const sortedStudents = students.slice().sort((a, b) => a.turma - b.turma);
-
-  res.json(sortedStudents);
+  res.json(students);
 });
 
 // Rota para adicionar um novo aluno com ID gerado automaticamente
@@ -50,9 +45,7 @@ app.post("/students", (req, res) => {
   const id = generateUniqueId(); // Gere um ID exclusivo para o novo aluno
   newStudent.id = id; // Adicione o ID ao objeto do aluno
   const students = readDataFromFile(); // Leia os alunos do arquivo JSON
-  const updatedStudents = [...students, newStudent]; // Crie uma nova lista com o novo aluno
-  const sortedStudents = updatedStudents.sort((a, b) => a.turma - b.turma); // Ordene os alunos
-  saveDataToFile(sortedStudents); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
+  saveDataToFile([...students, newStudent]); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
   res.status(201).json(newStudent);
 });
 
@@ -84,6 +77,11 @@ app.delete("/students/:id", (req, res) => {
   } else {
     res.status(404).json({ error: "Aluno não encontrado" });
   }
+});
+
+// Inicializa o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
 });
 
 // Inicializa o servidor
