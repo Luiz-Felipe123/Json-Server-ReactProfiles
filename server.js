@@ -18,9 +18,9 @@ function generateUniqueId() {
   return uuidv4();
 }
 
-const readDataFromFile = () => {
+const readDataFromFile = async () => {
   try {
-    const data = fs.readFileSync(dataFilePath, 'utf-8');
+    const data = await fs.readFile(dataFilePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
     console.error('Erro ao ler dados do arquivo:', error);
