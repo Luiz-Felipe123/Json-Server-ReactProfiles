@@ -24,7 +24,7 @@ const readDataFromFile = async () => {
     const data = await fs.readFile(dataFilePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
-    // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
+    console.error('Erro ao ler dados do arquivo:', error);
     return [];
   }
 };
