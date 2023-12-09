@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const fs = require("fs");
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +15,7 @@ const dataFilePath = "students.json";
 
 // Função para gerar IDs únicos
 function generateUniqueId() {
-  return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
+  return uuidv4();
 }
 
 // Função para ler os dados do arquivo JSON
