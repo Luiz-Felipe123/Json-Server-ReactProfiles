@@ -18,12 +18,10 @@ function generateUniqueId() {
   return uuidv4();
 }
 
-// Função assíncrona para ler os dados do arquivo JSON
-const readDataFromFile = async () => {
+// Função para ler os dados do arquivo JSON
+const readDataFromFile = () => {
   try {
-    const fileHandle = await fs.promises.open(dataFilePath, 'r');
-    const data = await fileHandle.readFile({ encoding: 'utf-8' });
-    await fileHandle.close();
+    const data = fs.readFileSync(dataFilePath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
     // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
@@ -31,29 +29,24 @@ const readDataFromFile = async () => {
   }
 }
 
-
 // Função para salvar os dados no arquivo JSON
-const saveDataToFile = async (data) => {
-  try {
-    await fs.promises.writeFile(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
-  } catch (error) {
-    console.error("Erro ao salvar dados no arquivo:", error);
-  }
+const saveDataToFile = (data) => {
+  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
 }
 
 // Rota para listar todos os alunos
-app.get("/students", async (req, res) => {
-  const students = await readDataFromFile();
+app.get("/students", (req, res) => {
+  const students = readDataFromFile();
   res.json(students);
 });
 
 // Rota para adicionar um novo aluno com ID gerado automaticamente
-app.post("/students", async (req, res) => {
+app.post("/students", (req, res) => {
   const newStudent = req.body;
   const id = generateUniqueId(); // Gere um ID exclusivo para o novo aluno
   newStudent.id = id; // Adicione o ID ao objeto do aluno
-  const students = await readDataFromFile(); // Leia os alunos do arquivo JSON
-  await saveDataToFile([...students, newStudent]); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
+  const students = readDataFromFile(); // Leia os alunos do arquivo JSON
+  saveDataToFile([...students, newStudent]); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
   res.status(201).json(newStudent);
 });
 
