@@ -42,7 +42,7 @@ const saveDataToFile = async (data) => {
 }
 
 // Rota para listar todos os alunos
-app.get("/students", (req, res) => {
+app.get("/students", async (req, res) => {
   const students = await readDataFromFile();
   res.json(students);
 });
