@@ -18,10 +18,9 @@ function generateUniqueId() {
   return uuidv4();
 }
 
-// Função para ler os dados do arquivo JSON
-const readDataFromFile = async () => {
+const readDataFromFile = () => {
   try {
-    const data = await fs.readFile(dataFilePath, 'utf-8');
+    const data = fs.readFileSync(dataFilePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
     console.error('Erro ao ler dados do arquivo:', error);
