@@ -36,7 +36,10 @@ const saveDataToFile = (data) => {
 // Rota para listar todos os alunos
 app.get("/students", (req, res) => {
   const students = readDataFromFile();
-  res.json(students);
+  
+  const sortedStudents = students.sort((a, b) => a.turma - b.turma);
+
+  res.json(sortedStudents);
 });
 
 // Rota para adicionar um novo aluno com ID gerado automaticamente
@@ -45,7 +48,9 @@ app.post("/students", (req, res) => {
   const id = generateUniqueId(); // Gere um ID exclusivo para o novo aluno
   newStudent.id = id; // Adicione o ID ao objeto do aluno
   const students = readDataFromFile(); // Leia os alunos do arquivo JSON
-  saveDataToFile([...students, newStudent]); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
+  const updatedStudents = [...students, newStudent]; // Crie uma nova lista com o novo aluno
+  const sortedStudents = updatedStudents.sort((a, b) => a.turma - b.turma); // Ordene os alunos
+  saveDataToFile(sortedStudents); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
   res.status(201).json(newStudent);
 });
 
