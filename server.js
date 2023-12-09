@@ -18,15 +18,17 @@ function generateUniqueId() {
   return uuidv4();
 }
 
-const readDataFromFile = () => {
+// Função assíncrona para ler os dados do arquivo JSON
+const readDataFromFile = async () => {
   try {
-    const data = fs.readFileSync(dataFilePath, 'utf-8');
+    const data = await fs.promises.readFile(dataFilePath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
-    console.error('Erro ao ler dados do arquivo:', error);
+    // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
     return [];
   }
-};
+}
+
 
 // Função para salvar os dados no arquivo JSON
 const saveDataToFile = async (data) => {
@@ -44,12 +46,12 @@ app.get("/students", (req, res) => {
 });
 
 // Rota para adicionar um novo aluno com ID gerado automaticamente
-app.post("/students", (req, res) => {
+app.post("/students", async (req, res) => {
   const newStudent = req.body;
   const id = generateUniqueId(); // Gere um ID exclusivo para o novo aluno
   newStudent.id = id; // Adicione o ID ao objeto do aluno
-  const students = readDataFromFile(); // Leia os alunos do arquivo JSON
-  saveDataToFile([...students, newStudent]); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
+  const students = await readDataFromFile(); // Leia os alunos do arquivo JSON
+  await saveDataToFile([...students, newStudent]); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
   res.status(201).json(newStudent);
 });
 
