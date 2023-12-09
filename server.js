@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const fs = require('fs').promises;
+const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
