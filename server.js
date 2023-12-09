@@ -29,8 +29,12 @@ const readDataFromFile = () => {
 };
 
 // Função para salvar os dados no arquivo JSON
-const saveDataToFile = (data) => {
-  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
+const saveDataToFile = async (data) => {
+  try {
+    await fs.promises.writeFile(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
+  } catch (error) {
+    console.error("Erro ao salvar dados no arquivo:", error);
+  }
 }
 
 // Rota para listar todos os alunos
