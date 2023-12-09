@@ -54,16 +54,23 @@ app.put("/students/:id", (req, res) => {
   const updatedStudent = req.body;
   const students = readDataFromFile();
 
+  console.log("Requisição de edição recebida para o aluno com ID:", id);
+  
   const studentIndex = students.findIndex((student) => student.id === id);
   if (studentIndex !== -1) {
+    console.log("Aluno encontrado. Atualizando informações.");
+    
     // Atualize as informações do aluno
     students[studentIndex] = updatedStudent;
     saveDataToFile(students); // Salve os alunos atualizados no arquivo JSON
     res.json(updatedStudent);
   } else {
+    console.log("Aluno não encontrado. Respondendo com status 404.");
+    
     res.status(404).json({ error: "Aluno não encontrado" });
   }
 });
+
 
 app.delete("/students/:id", (req, res) => {
   const id = req.params.id;
