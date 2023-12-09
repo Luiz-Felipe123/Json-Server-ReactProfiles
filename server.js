@@ -36,8 +36,8 @@ const saveDataToFile = (data) => {
 // Rota para listar todos os alunos
 app.get("/students", (req, res) => {
   const students = readDataFromFile();
-  
-  const sortedStudents = students.sort((a, b) => a.turma - b.turma);
+
+  const sortedStudents = students.slice().sort((a, b) => a.turma - b.turma);
 
   res.json(sortedStudents);
 });
