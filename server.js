@@ -21,12 +21,14 @@ function generateUniqueId() {
 const readDataFromFile = () => {
   try {
     const data = fs.readFileSync(dataFilePath, "utf-8");
-    return JSON.parse(data);
+    const parsedData = JSON.parse(data);
+    return Array.isArray(parsedData) ? parsedData : [];
   } catch (error) {
     // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
     return [];
   }
 }
+
 
 // Função para salvar os dados no arquivo JSON
 const saveDataToFile = (data) => {
