@@ -21,7 +21,9 @@ function generateUniqueId() {
 // Função assíncrona para ler os dados do arquivo JSON
 const readDataFromFile = async () => {
   try {
-    const data = await fs.promises.readFile(dataFilePath, "utf-8");
+    const fileHandle = await fs.promises.open(dataFilePath, 'r');
+    const data = await fileHandle.readFile({ encoding: 'utf-8' });
+    await fileHandle.close();
     return JSON.parse(data);
   } catch (error) {
     // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
@@ -41,7 +43,7 @@ const saveDataToFile = async (data) => {
 
 // Rota para listar todos os alunos
 app.get("/students", (req, res) => {
-  const students = readDataFromFile();
+  const students = await readDataFromFile();
   res.json(students);
 });
 
