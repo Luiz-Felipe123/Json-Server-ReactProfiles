@@ -18,20 +18,24 @@ function generateUniqueId() {
   return uuidv4();
 }
 
-// Função para ler os dados do arquivo JSON
-const readDataFromFile = () => {
+// Função assíncrona para ler os dados do arquivo JSON
+const readDataFromFile = async () => {
   try {
-    const data = fs.readFileSync(dataFilePath, "utf-8");
+    const data = await fs.readFile(dataFilePath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
-    // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
+    console.error("Erro ao ler dados do arquivo:", error);
     return [];
   }
 }
 
-// Função para salvar os dados no arquivo JSON
-const saveDataToFile = (data) => {
-  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
+// Função assíncrona para salvar os dados no arquivo JSON
+const saveDataToFile = async (data) => {
+  try {
+    await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
+  } catch (error) {
+    console.error("Erro ao salvar dados no arquivo:", error);
+  }
 }
 
 // Rota para listar todos os alunos
