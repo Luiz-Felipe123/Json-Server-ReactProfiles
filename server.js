@@ -19,15 +19,15 @@ function generateUniqueId() {
 }
 
 // Função para ler os dados do arquivo JSON
-const readDataFromFile = () => {
+const readDataFromFile = async () => {
   try {
-    const data = fs.readFileSync(dataFilePath, "utf-8");
+    const data = await fs.readFile(dataFilePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
     // Se o arquivo não existir ou ocorrer um erro na leitura, retorne um array vazio
     return [];
   }
-}
+};
 
 // Função para salvar os dados no arquivo JSON
 const saveDataToFile = async (data) => {
