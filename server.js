@@ -38,38 +38,28 @@ const saveDataToFile = async (data) => {
   }
 }
 
-app.get("/students", async (req, res) => {
-  const students = await readDataFromFile();
+// Rota para listar todos os alunos
+app.get("/students", (req, res) => {
+  const students = readDataFromFile();
+  console.log("Dados enviados em resposta à solicitação GET /students:", students);
   res.json(students);
 });
 
-app.post("/students", async (req, res) => {
-  try {
-    const newStudent = req.body;
-    const id = generateUniqueId();
-    newStudent.id = id;
-
-    // Leitura assíncrona do arquivo antes de adicionar um novo aluno
-    const students = await readDataFromFile();
-
-    // Adiciona o novo aluno à lista
-    const updatedStudents = [...students, newStudent];
-
-    // Salva os alunos atualizados no arquivo JSON
-    await saveDataToFile(updatedStudents);
-
-    res.status(201).json(newStudent);
-  } catch (error) {
-    console.error("Erro ao cadastrar aluno:", error);
-    res.status(500).json({ error: "Erro interno do servidor" });
-  }
+// Rota para adicionar um novo aluno com ID gerado automaticamente
+app.post("/students", (req, res) => {
+  const newStudent = req.body;
+  const id = generateUniqueId(); // Gere um ID exclusivo para o novo aluno
+  newStudent.id = id; // Adicione o ID ao objeto do aluno
+  const students = readDataFromFile(); // Leia os alunos do arquivo JSON
+  saveDataToFile([...students, newStudent]); // Salva os alunos atualizados no arquivo JSON (incluindo o novo aluno)
+  console.log("Novo aluno adicionado:", newStudent);
+  res.status(201).json(newStudent);
 });
 
-
-app.put("/students/:id", async (req, res) => {
+app.put("/students/:id", (req, res) => {
   const id = req.params.id;
   const updatedStudent = req.body;
-  const students = await readDataFromFile();
+  const students = readDataFromFile();
 
   console.log("Requisição de edição recebida para o aluno com ID:", id);
   
@@ -77,8 +67,10 @@ app.put("/students/:id", async (req, res) => {
   if (studentIndex !== -1) {
     console.log("Aluno encontrado. Atualizando informações.");
     
+    // Atualize as informações do aluno
     students[studentIndex] = updatedStudent;
-    await saveDataToFile(students);
+    saveDataToFile(students); // Salve os alunos atualizados no arquivo JSON
+    console.log("Informações do aluno atualizadas:", updatedStudent);
     res.json(updatedStudent);
   } else {
     console.log("Aluno não encontrado. Respondendo com status 404.");
@@ -87,18 +79,25 @@ app.put("/students/:id", async (req, res) => {
   }
 });
 
-app.delete("/students/:id", async (req, res) => {
+app.delete("/students/:id", (req, res) => {
   const id = req.params.id;
-  const students = await readDataFromFile();
+  const students = readDataFromFile();
 
   const studentIndex = students.findIndex((student) => student.id === id);
   if (studentIndex !== -1) {
     students.splice(studentIndex, 1);
-    await saveDataToFile(students);
+    saveDataToFile(students); // Salva os alunos atualizados no arquivo JSON
+    console.log("Aluno excluído com sucesso. ID do aluno excluído:", id);
     res.json({ message: "Aluno excluído com sucesso" });
   } else {
+    console.log("Aluno não encontrado. Respondendo com status 404.");
     res.status(404).json({ error: "Aluno não encontrado" });
   }
+});
+
+// Inicializa o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
 });
 
 
