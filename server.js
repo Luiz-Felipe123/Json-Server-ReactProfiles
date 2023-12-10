@@ -99,9 +99,3 @@ app.delete("/students/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
-
-
-// Inicializa o servidor
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
-});
