@@ -44,13 +44,27 @@ app.get("/students", async (req, res) => {
 });
 
 app.post("/students", async (req, res) => {
-  const newStudent = req.body;
-  const id = generateUniqueId();
-  newStudent.id = id;
-  const students = await readDataFromFile();
-  await saveDataToFile([...students, newStudent]);
-  res.status(201).json(newStudent);
+  try {
+    const newStudent = req.body;
+    const id = generateUniqueId();
+    newStudent.id = id;
+
+    // Leitura assíncrona do arquivo antes de adicionar um novo aluno
+    const students = await readDataFromFile();
+
+    // Adiciona o novo aluno à lista
+    const updatedStudents = [...students, newStudent];
+
+    // Salva os alunos atualizados no arquivo JSON
+    await saveDataToFile(updatedStudents);
+
+    res.status(201).json(newStudent);
+  } catch (error) {
+    console.error("Erro ao cadastrar aluno:", error);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
 });
+
 
 app.put("/students/:id", async (req, res) => {
   const id = req.params.id;
